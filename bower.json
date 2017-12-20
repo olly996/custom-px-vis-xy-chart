@@ -1,0 +1,21 @@
+{
+  "name": "custom-px-vis-xy-chart",
+  "authors": [
+    "Oliver Rodrigues <oliver.rodrigues@citiustech.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "px-vis-xy-chart": "^3.3.0",
+    "px-dropdown": "^4.2.2"
+  }
+}
