@@ -17,13 +17,14 @@
 <script src="text/javascript" src="bower_components/px-vis-xy-chart/demo_data.json"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+
+
 <dom-module id="custom-chart">
-    <style >
+    <style>
          :root {
             /*--px-data-table-cell-background-color--edit: CornFlowerblue;*/
             --px-data-table-highlight--low: orange;
         }
-        
         /*.wrapper {
             width: 1000px;
             margin: 0 auto;
@@ -34,62 +35,61 @@
         }*/
         
         #block1 {
-    background-color: #F5F5F5;
-    margin: 10px 20px;
-    padding: 20px;
-    width: 600px;
-    float: left;
-}
+            background-color: #F5F5F5;
+            margin: 10px 20px;
+            padding: 20px;
+            width: 600px;
+            float: left;
+        }
     </style>
     <template>
 
         <div id="container" class="wrapper">
             <px-dropdown items='["Save chart as PDF","Save chart as JPEG image", "Save chart as PNG image"]'></px-dropdown>
             <div id="block1">
-        <px-vis-xy-chart id="chart" debounce-resize-timing="250" width="504" height="334" chart-horizontal-alignment="left"
-            chart-vertical-alignment="center" margin='{"top":30,"bottom":60,"left":75,"right":20}' tooltip-config='{"forceDateTimeDisplay":true}'
-            register-config='{"type":"horizontal","forceDateTimeDisplay":true}' selection-type="xy" chart-data="[[chartData]]"
-            series-config='{"firstSerie":{"type":"scatter","name":"Serie1","xAxisUnit":"Hz","yAxisUnit":"Hz","x":"T48A","y":"T48B","axis":{"id":"axis1","number":1,"side":"left"}},"secondSerie":{"type":"line","name":"Serie2","x":"T48A","y":"Line","axis":{"id":"axis2","number":2,"side":"left"}},"thirdSerie":{"type":"scatter","name":"Serie3","xAxisUnit":"Hz","yAxisUnit":"Hz","x":"T48A","y":"T48C","axis":{"id":"axis1","number":1,"side":"left"}}}'
-            chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}' event-data='[{"id":"123","label":"Fa Icon","x":"1334"},{"id":"456","label":"Unicode","x":"1342"},{"id":"789","label":"Default","x":"1346"}]'
-            event-config='{"Fa Icon":{"color":"blue","icon":"px-fea:deployments","type":"px","offset":[0,0]},"Unicode":{"color":"green","icon":"px-fea:bug","type":"px","offset":[1,0]},"Event Png":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}'
-            x-axis-config='{"title":"X","labelPosition":"center","orientation":"bottom"}' y-axis-config='{"title":"Y","labelPosition":"center","orientation":"left"}'
-            time-data="Date" dynamic-menu-config='[{"name":"Delete","action":"function(data) {var newConf = {}, confKeys = Object.keys(this.seriesConfig); for(var i=0; i<confKeys.length; i++) { if(data.additionalDetail.name !== confKeys[i]) {newConf[confKeys[i]] = this.seriesConfig[confKeys[i]];}}this.set(\"seriesConfig\", newConf);}","eventName":"delete","icon":"px-vis:trash-series"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"px-vis:bring-to-front"}]'
-            toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"px-nav:notification","subConfig":{"customClick":{"icon":"px-nav:play","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"px-nav:pause","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}'
-            nav-height="100" nav-margin='{"top":5,"right":10,"bottom":20,"left":10}' nav-series-config='{"T48A":{"type":"line","name":"Trend","x":"Date","y":"T48A"}}'>
-        </px-vis-xy-chart>
+                <px-vis-xy-chart id="chart" debounce-resize-timing="250" width="504" height="334" chart-horizontal-alignment="left" chart-vertical-alignment="center"
+                    margin='{"top":0,"bottom":60,"left":75,"right":20}' tooltip-config='{"forceDateTimeDisplay":true}' register-config='{"type":"horizontal","forceDateTimeDisplay":true}'
+                    selection-type="xy" chart-data="[[chartData]]" series-config='{"firstSerie":{"type":"scatter","name":"Serie1","xAxisUnit":"Hz","yAxisUnit":"Hz","x":"T48A","y":"T48B","axis":{"id":"axis1","number":1,"side":"left"}},"secondSerie":{"type":"line","name":"Serie2","x":"T48A","y":"Line","axis":{"id":"axis2","number":2,"side":"left"}},"thirdSerie":{"type":"scatter","name":"Serie3","xAxisUnit":"Hz","yAxisUnit":"Hz","x":"T48A","y":"T48C","axis":{"id":"axis1","number":1,"side":"left"}}}'
+                    chart-extents='{"x":["dynamic","dynamic"],"y":["dynamic","dynamic"]}' event-data='[{"id":"123","label":"Fa Icon","x":"1334"},{"id":"456","label":"Unicode","x":"1342"},{"id":"789","label":"Default","x":"1346"}]'
+                    event-config='{"Fa Icon":{"color":"blue","icon":"px-fea:deployments","type":"px","offset":[0,0]},"Unicode":{"color":"green","icon":"px-fea:bug","type":"px","offset":[1,0]},"Event Png":{"icon":"ge_logo.png","type":"image","offset":[0,-20],"size":"20"}}'
+                    x-axis-config='{"title":"X","labelPosition":"center","orientation":"bottom"}' y-axis-config='{"title":"Y","labelPosition":"center","orientation":"left"}'
+                    time-data="Date" dynamic-menu-config='[{"name":"Delete","action":"function(data) {var newConf = {}, confKeys = Object.keys(this.seriesConfig); for(var i=0; i<confKeys.length; i++) { if(data.additionalDetail.name !== confKeys[i]) {newConf[confKeys[i]] = this.seriesConfig[confKeys[i]];}}this.set(\"seriesConfig\", newConf);}","eventName":"delete","icon":"px-vis:trash-series"},{"name":"Bring To Front","action":"function(data) {this.set(\"serieToRedrawOnTop\", data.additionalDetail.name);}","eventName":"bring-to-front","icon":"px-vis:bring-to-front"}]'
+                    toolbar-config='{"config":{"advancedZoom":true,"pan":true,"tooltip":true,"logHover":{"buttonGroup":2,"tooltipLabel":"The submenu item of this menu will define custom mouse interaction","icon":"px-nav:notification","subConfig":{"customClick":{"icon":"px-nav:play","buttonGroup":3,"tooltipLabel":"define some custom mouse interactions on chart","eventName":"my-custom-click","actionConfig":{"mousedown":"function(mousePos) { console.log(\"custom click on chart. Context is the chart. Mouse pos is available: \" + JSON.stringify(mousePos))}","mouseup":"function(mousePos) { console.log(\"custom action on mouse up the chart \" + JSON.stringify(mousePos));}","mouseout":"function(mousePos) { console.log(\"custom action on mouse out the chart \" + JSON.stringify(mousePos));}","mousemove":"function(mousePos) { console.log(\"custom action on hovering the chart \");}"}},"customClick2":{"buttonGroup":3,"icon":"px-nav:pause","tooltipLabel":"Remove all custom interactions","actionConfig":{"mousedown":null,"mouseup":null,"mouseout":null,"mousemove":null}}}}}}'
+                    nav-height="100" nav-margin='{"top":5,"right":10,"bottom":20,"left":10}' nav-series-config='{"T48A":{"type":"line","name":"Trend","x":"Date","y":"T48A"}}'>
+                </px-vis-xy-chart>
             </div>
-            <div  id="block2">
-            <px-data-table id="datatable" table-data={{tableData}}>
-            <px-data-table-column id="id" name='id' sortable filterable>
-            </px-data-table-column>
-            <px-data-table-column id="first" name='first' editable sortable filterable>
-                <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
-                </px-data-table-highlight>
-                <px-validation>
-                    <px-validator validation-method="isNotNumberFirst" import="px-example-validator.html"></px-validator>
-                </px-validation>
-            </px-data-table-column>
-            <px-data-table-column name='last' sortable editable filterable>
-                <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
-                </px-data-table-highlight>
-                <px-validation>
-                    <px-validator validation-method="isNotNumberLast" import="px-example-validator.html"></px-validator>
-                </px-validation>
-            </px-data-table-column>
-            <px-data-table-column name='email' sortable editable filterable>
-                <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
-                </px-data-table-highlight>
-                 <px-validation>
-                    <px-validator validation-method="isNotNumberEmail" import="px-example-validator.html"></px-validator>
-                </px-validation>
-            </px-data-table-column>
-            <px-data-table-column name='actions' editable type="html"></px-data-table-column>
-        </px-data-table>
-        <!--<px-modal id="modal" modal-heading="Sign-In Required" btn-modal-positive="Yo">
+            <div id="block2">
+                <px-data-table id="datatable" table-data={{tableData}}>
+                    <px-data-table-column id="id" name='id' sortable filterable>
+                    </px-data-table-column>
+                    <px-data-table-column id="first" name='first' editable sortable filterable>
+                        <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
+                        </px-data-table-highlight>
+                        <px-validation>
+                            <px-validator validation-method="isNotNumberFirst" import="px-example-validator.html"></px-validator>
+                        </px-validation>
+                    </px-data-table-column>
+                    <px-data-table-column name='last' sortable editable filterable>
+                        <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
+                        </px-data-table-highlight>
+                        <px-validation>
+                            <px-validator validation-method="isNotNumberLast" import="px-example-validator.html"></px-validator>
+                        </px-validation>
+                    </px-data-table-column>
+                    <px-data-table-column name='email' sortable editable filterable>
+                        <px-data-table-highlight highlight-type="cell" highlight-value="low" highlight-method="checkNum" import="px-Valentine-highlight.html">
+                        </px-data-table-highlight>
+                        <px-validation>
+                            <px-validator validation-method="isNotNumberEmail" import="px-example-validator.html"></px-validator>
+                        </px-validation>
+                    </px-data-table-column>
+                    <px-data-table-column name='actions' editable type="html"></px-data-table-column>
+                </px-data-table>
+                <!--<px-modal id="modal" modal-heading="Sign-In Required" btn-modal-positive="Yo">
 
             <div> {{message}}</div>
         </px-modal>-->
-        
+
             </div>
         </div>
 
@@ -1299,23 +1299,23 @@
                     reflectToAttribute: true
                 }
 
-            }, 
-            
+            },
+
             listeners: {
                 "indexchanged": "_indexChanged",
                 'px-cell-click': '_updateData',
-                'keydown':'_cellChanged',
-                 'px-dropdown-click': 'download'
+                'keydown': '_cellChanged',
+                'px-dropdown-click': 'download'
 
             },
-            _cellChanged:function(e){
-                
-                 this.$.datatable.querySelectorAll('.cell__edit')[0].style.backgroundColor = "white";
+            _cellChanged: function (e) {
+
+                this.$.datatable.querySelectorAll('.cell__edit')[0].style.backgroundColor = "white";
 
             },
             _updateData: function (e) {
                 // console.log(e.detail.column);
-               
+
                 // console.log(this.$.datatable.querySelectorAll('.cell__edit')[0]._editing);
                 // this.$.datatable.querySelectorAll('.cell__edit')[0].customStyle['--px-data-table-highlight--low'] = 'white';
                 // this.$.datatable.querySelectorAll('.cell__edit')[0].updateStyles();
@@ -1417,20 +1417,47 @@
 
                     case 1:
                         this.$.chart.getImage(function (obj) {
+
+                            var canvas = document.createElement("canvas");
+                            canvas.width = "700";
+                            canvas.height = "800";
+                            var ctx = canvas.getContext("2d");
+                            ctx.fillStyle = 'white';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                            var image = new Image();
+                            image.onload = function () {
+                            ctx.drawImage(image, 0, 0);
                             var link = document.createElement("a");
-                            link.setAttribute("href", obj.image);
+                            link.setAttribute("href", canvas.toDataURL("image/png"));
                             link.setAttribute("download", "chart.jpg");
                             link.click();
+
+
+                            };
+                            image.src = obj.image;
                         }
                         );
                         break;
 
                     case 2:
                         this.$.chart.getImage(function (obj) {
+                            var canvas = document.createElement("canvas");
+                            canvas.width = "700";
+                            canvas.height = "800";
+                            var ctx = canvas.getContext("2d");
+                            ctx.fillStyle = 'white';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                            var image = new Image();
+                            image.onload = function () {
+                            ctx.drawImage(image, 0, 0);
                             var link = document.createElement("a");
-                            link.setAttribute("href", obj.image);
-                            link.setAttribute("download", "chart.png");
+                            link.setAttribute("href", canvas.toDataURL("image/png"));
+                            link.setAttribute("download", "chart.jpg");
                             link.click();
+
+
+                            };
+                            image.src = obj.image;
                         }
                         );
                         break;
