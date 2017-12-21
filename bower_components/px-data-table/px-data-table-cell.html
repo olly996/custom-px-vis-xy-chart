@@ -5,7 +5,6 @@
 <link rel="import" href="px-edit-cell.html">
 <link rel="import" href="../px-dropdown/px-dropdown.html">
 
-
 <link rel="import" href="css/px-data-table-cell-styles.html">
 
 <dom-module id="px-data-table-cell">
@@ -63,13 +62,9 @@
       <!-- icon template -->
       <template is="dom-if" if="{{cellEditable}}">
         <div class="fa fa-fw cell-status--container">
-           
           <px-icon id="editicon" role="button" aria-label="Click to edit cell" class$="{{_getCellIconClass(_showEditIcon, _editing, cellValidation.passedValidation)}}"
             icon="{{_getCellIcon(_showEditIcon, _editing, cellValidation.passedValidation)}}">
           </px-icon>
-           
-         
-         
           <template is="dom-if" if="{{!cellValidation.passedValidation}}">
             <px-tooltip
               class="tooltip-font"

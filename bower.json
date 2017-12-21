@@ -16,6 +16,8 @@
   ],
   "dependencies": {
     "px-vis-xy-chart": "^3.3.0",
-    "px-dropdown": "^4.2.2"
+    "px-dropdown": "^4.2.2",
+    "px-validation": "^1.1.0",
+    "px-data-table": "^5.1.9"
   }
 }
